@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       success_url: `${origin}/dashboard/settings?billing=success`,
       cancel_url: `${origin}/register?billing=cancelled`,
       metadata: { productId: product.id },
-    }, { idempotencyKey: `carbonledger-${product.id}-${new Date().toISOString().slice(0, 13)}` })
+    }, { idempotencyKey: `carbyn-${product.id}-${new Date().toISOString().slice(0, 13)}` })
     return NextResponse.json({ url: session.url })
   } catch { return NextResponse.json({ error: 'Unable to create checkout session' }, { status: 500 }) }
 }

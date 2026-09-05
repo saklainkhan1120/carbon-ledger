@@ -117,15 +117,15 @@ const FAQS = [
     a: 'Under UAE Federal Decree-Law No. 11 of 2024 and Cabinet Resolution 67/2024, every registered business entity in the UAE (including Free Zones, DIFC, and ADGM) must measure, report, and maintain 5-year records of their Scope 1 and Scope 2 emissions. Non-compliance carries fines between AED 50,000 and AED 2,000,000.',
   },
   {
-    q: 'How does CarbonLedger calculate Scope 1 and Scope 2 emissions?',
-    a: 'CarbonLedger applies government-published UAE emission factors: DEWA (Dubai 0.45 kgCO₂/kWh), ADDC (Abu Dhabi 0.42 kgCO₂/kWh), SEWA (Sharjah 0.47 kgCO₂/kWh), commercial diesel (2.68 kgCO₂/L), petrol (2.31 kgCO₂/L), and LPG cylinders (16.61 kgCO₂/cyl).',
+    q: 'How does Carbyn calculate Scope 1 and Scope 2 emissions?',
+    a: 'Carbyn applies government-published UAE emission factors: DEWA (Dubai 0.45 kgCO₂/kWh), ADDC (Abu Dhabi 0.42 kgCO₂/kWh), SEWA (Sharjah 0.47 kgCO₂/kWh), commercial diesel (2.68 kgCO₂/L), petrol (2.31 kgCO₂/L), and LPG cylinders (16.61 kgCO₂/cyl).',
   },
   {
     q: 'Can we manage multiple business locations across Dubai, Abu Dhabi, and Sharjah?',
     a: 'Yes! On our Growth and Enterprise plans, you can manage up to 10 or unlimited locations, tag meters individually, and generate consolidated or per-location MOCCAE compliance reports.',
   },
   {
-    q: 'Are CarbonLedger PDF reports ready for MOCCAE submission?',
+    q: 'Are Carbyn PDF reports ready for MOCCAE submission?',
     a: 'Yes. Our one-click PDF generation produces reports in the exact required MOCCAE MRV format, including company trade license details, Scope 1 & 2 breakdown tables, and 5-year audit trail seals.',
   },
 ]
@@ -189,7 +189,7 @@ export default function LandingPage() {
             </span>
             <div className="flex flex-col">
               <span className="text-white font-black text-lg tracking-tight flex items-center gap-1">
-                Carbon<span className="text-emerald-400">Ledger</span>
+                Car<span className="text-emerald-400">byn</span>
                 <span className="text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 px-1.5 py-0.2 rounded-md border border-emerald-500/30">
                   UAE
                 </span>
@@ -653,7 +653,7 @@ export default function LandingPage() {
             </div>
             <h3 className="text-xl font-bold text-white">5-Year Statutory Vault</h3>
             <p className="text-xs leading-relaxed text-slate-300">
-              Article 8 of Federal Law 11/2024 mandates 5-year record retention. CarbonLedger encrypts and archives every activity record with SHA-256 proofs.
+              Article 8 of Federal Law 11/2024 mandates 5-year record retention. Carbyn encrypts and archives every activity record with SHA-256 proofs.
             </p>
           </div>
 
@@ -880,9 +880,9 @@ export default function LandingPage() {
             <span className="flex size-7 items-center justify-center rounded-xl bg-emerald-400 text-slate-950 font-bold">
               <Leaf size={14} />
             </span>
-            <span className="font-bold text-white">CarbonLedger UAE</span>
+            <span className="font-bold text-white">Carbyn UAE</span>
           </div>
-          <p>© 2026 CarbonLedger. Built in the UAE for Federal Decree-Law No. 11/2024 compliance.</p>
+          <p>© 2026 Carbyn. Built in the UAE for Federal Decree-Law No. 11/2024 compliance.</p>
           <div className="flex gap-4 font-bold text-slate-300">
             <Link href="/login" className="hover:text-emerald-400">
               Sign In

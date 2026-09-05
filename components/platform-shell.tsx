@@ -166,7 +166,7 @@ export function PlatformShell({
             </span>
             <div className="flex flex-col">
               <span className="text-base font-extrabold tracking-tight text-foreground flex items-center gap-1.5">
-                Carbon<span className="text-emerald-600 dark:text-emerald-400">Ledger</span>
+                Car<span className="text-emerald-600 dark:text-emerald-400">byn</span>
               </span>
               <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                 {admin ? 'Super Admin Portal' : 'UAE GHG Compliance'}

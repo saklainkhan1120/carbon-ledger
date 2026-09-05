@@ -94,7 +94,7 @@ export default function PublicCalculatorPage() {
               <Leaf size={18} className="stroke-[2.5]" />
             </span>
             <span className="text-white font-black">
-              Carbon<span className="text-emerald-400">Ledger</span> UAE
+              Car<span className="text-emerald-400">byn</span> UAE
             </span>
           </Link>
           <Link

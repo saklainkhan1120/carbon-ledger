@@ -11,10 +11,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'CarbonLedger — UAE Carbon Accounting & ESG Compliance Platform',
+  title: 'Carbyn — UAE Carbon Accounting & ESG Compliance Platform',
   description: 'Enterprise-grade Scope 1, 2, and 3 carbon accounting tailored for UAE businesses. Audit-ready GHG reports aligned with DEWA, ADDC, and UAE Net Zero 2050.',
-  keywords: ['carbon accounting UAE', 'DEWA emission factors', 'ESG compliance Dubai', 'Scope 1 2 3 emissions UAE', 'GHG protocol UAE'],
-  authors: [{ name: 'CarbonLedger' }],
+  keywords: ['carbon accounting UAE', 'DEWA emission factors', 'ESG compliance Dubai', 'Scope 1 2 3 emissions UAE', 'GHG protocol UAE', 'Carbyn ESG'],
+  authors: [{ name: 'Carbyn' }],
   icons: {
     icon: '/icon.svg',
   },

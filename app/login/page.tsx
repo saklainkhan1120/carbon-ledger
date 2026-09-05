@@ -30,8 +30,8 @@ const DEMO_PERSONAS = [
   {
     role: 'Super Admin Portal',
     name: 'Super Admin',
-    email: 'admin@carbonledger.ae',
-    company: 'CarbonLedger UAE Authority',
+    email: 'admin@carbyn.ae',
+    company: 'Carbyn UAE Authority',
     badge: 'Full Governance',
     targetPath: '/admin',
   },
@@ -75,7 +75,7 @@ export default function LoginPage() {
             <Leaf size={18} className="stroke-[2.5]" />
           </span>
           <span className="text-white font-black">
-            Carbon<span className="text-emerald-400">Ledger</span> UAE
+            Car<span className="text-emerald-400">byn</span> UAE
           </span>
         </Link>
         <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3.5 py-1 text-xs font-bold text-emerald-300">
@@ -188,7 +188,7 @@ export default function LoginPage() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center text-xs text-slate-400">
-        © 2026 CarbonLedger UAE. Compliant with Federal Decree-Law No. 11/2024.
+        © 2026 Carbyn UAE. Compliant with Federal Decree-Law No. 11/2024.
       </footer>
     </main>
   )

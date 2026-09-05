@@ -15,7 +15,7 @@ export default function NotFound() {
           <span className="flex size-9 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-slate-950 shadow-md shadow-emerald-500/20">
             <Leaf size={18} className="stroke-[2.5]" />
           </span>
-          <span className="text-white font-black">CarbonLedger UAE</span>
+          <span className="text-white font-black">Carbyn UAE</span>
         </Link>
       </header>
 
@@ -49,7 +49,7 @@ export default function NotFound() {
       </section>
 
       <footer className="relative z-10 text-center text-xs text-slate-400">
-        © 2026 CarbonLedger UAE. Compliant with Federal Decree-Law No. 11/2024.
+        © 2026 Carbyn UAE. Compliant with Federal Decree-Law No. 11/2024.
       </footer>
     </main>
   )

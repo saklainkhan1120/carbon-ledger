@@ -12,11 +12,11 @@ import {
 } from './demo-data'
 
 const STORAGE_KEYS = {
-  RECORDS: 'carbonledger_records_v1',
-  REPORTS: 'carbonledger_reports_v1',
-  FACILITIES: 'carbonledger_facilities_v1',
-  COMPANY: 'carbonledger_company_v1',
-  ACTIVE_FACILITY: 'carbonledger_active_fac_v1',
+  RECORDS: 'carbyn_records_v1',
+  REPORTS: 'carbyn_reports_v1',
+  FACILITIES: 'carbyn_facilities_v1',
+  COMPANY: 'carbyn_company_v1',
+  ACTIVE_FACILITY: 'carbyn_active_fac_v1',
 }
 
 export function useCarbonStore() {

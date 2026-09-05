@@ -7,7 +7,7 @@ const USERS_ROWS = [
   ['Omar Rahman', 'Gulf Horizon Properties PJSC', 'omar.r@gulfhorizon.ae', 'Admin', 'Today, 09:40 AM', 'Active'],
   ['Lina Saeed', 'Mira Logistics & Marine FZCO', 'lina.s@miralogistics.ae', 'Owner', 'Yesterday', 'Active'],
   ['Marcus Chen', 'Nexa Retail Group Middle East', 'marcus.c@nexagroup.ae', 'Reviewer', '29 Aug 2026', 'Active'],
-  ['Sarah Ahmed', 'CarbonLedger HQ', 'sarah.ahmed@carbonledger.ae', 'Super Admin', 'Just now', 'Active'],
+  ['Sarah Ahmed', 'Carbyn HQ', 'sarah.ahmed@carbyn.ae', 'Super Admin', 'Just now', 'Active'],
   ['Fahad Al Qasimi', 'Apex Steel Industries FZC', 'f.qasimi@apexsteel.ae', 'Owner', '3 days ago', 'Active'],
   ['Elena Rostova', 'Dubai Marina Hospitality Group', 'elena.r@marinahotels.ae', 'Admin', '1 week ago', 'Active'],
 ]

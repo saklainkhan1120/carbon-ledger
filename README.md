@@ -1,4 +1,4 @@
-# 🌿 CarbonLedger (UAE) — Enterprise Carbon Accounting & ESG Compliance Platform
+# 🌿 Carbyn (UAE) — Enterprise Carbon Accounting & ESG Compliance Platform
 
 > **UAE Federal Decree-Law No. 11 of 2024 & Cabinet Resolution 67/2024 Aligned GHG Compliance Platform**  
 > Empowering UAE enterprises to calculate, audit, and disclose Scope 1, 2, and 3 greenhouse gas emissions for MOCCAE reporting and the **UAE Net Zero 2050** strategic initiative.
@@ -6,7 +6,7 @@
 ---
 
 ## 🇦🇪 Key Compliance & Utility Grids
-CarbonLedger comes pre-configured with official UAE emission factors:
+Carbyn comes pre-configured with official UAE emission factors:
 - **DEWA (Dubai Electricity & Water Authority)**: `0.450 kg CO₂e / kWh`
 - **ADDC (Abu Dhabi Distribution Company)**: `0.420 kg CO₂e / kWh`
 - **SEWA (Sharjah Electricity & Water Authority)**: `0.470 kg CO₂e / kWh`

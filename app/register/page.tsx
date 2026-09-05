@@ -50,7 +50,7 @@ export default function RegisterPage() {
           <span className="flex size-9 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-slate-950 shadow-md shadow-emerald-500/20">
             <Leaf size={18} className="stroke-[2.5]" />
           </span>
-          <span className="text-white font-black">CarbonLedger UAE</span>
+          <span className="text-white font-black">Carbyn UAE</span>
         </Link>
         <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-3 py-1 text-xs font-mono font-bold text-emerald-300">
           Step {step} of 3
@@ -275,7 +275,7 @@ export default function RegisterPage() {
                 type="submit"
                 className="w-full rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-300 py-4 text-xs font-black text-slate-950 shadow-xl shadow-emerald-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2"
               >
-                Launch CarbonLedger Workspace <ArrowRight size={15} />
+                Launch Carbyn Workspace <ArrowRight size={15} />
               </button>
             </form>
           )}
@@ -284,7 +284,7 @@ export default function RegisterPage() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center text-xs text-slate-400">
-        © 2026 CarbonLedger UAE. Compliant with Federal Decree-Law No. 11/2024.
+        © 2026 Carbyn UAE. Compliant with Federal Decree-Law No. 11/2024.
       </footer>
     </main>
   )

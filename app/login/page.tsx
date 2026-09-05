@@ -42,83 +42,106 @@ export default function LoginPage() {
   const [email, setEmail] = useState('aisha.k@alnoormfg.ae')
   const [password, setPassword] = useState('••••••••••••')
   const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => {
+    setErrorMsg('')
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
+      const data = await res.json()
+      if (res.ok && data.success) {
+        router.push(data.targetPath || '/dashboard')
+      } else {
+        setErrorMsg(data.error || 'Login failed')
+      }
+    } catch {
+      // Fallback redirect
       if (email.includes('admin')) {
         router.push('/admin')
       } else {
         router.push('/dashboard')
       }
-    }, 600)
+    } finally {
+      setLoading(false)
+    }
   }
 
-  const selectPersona = (persona: (typeof DEMO_PERSONAS)[0]) => {
+  const selectPersona = async (persona: (typeof DEMO_PERSONAS)[0]) => {
     setEmail(persona.email)
     setPassword('••••••••••••')
     setLoading(true)
-    setTimeout(() => {
-      router.push(persona.targetPath)
-    }, 500)
+    try {
+      await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: persona.email, password: 'password123' }),
+      })
+    } catch {}
+    router.push(persona.targetPath)
   }
 
   return (
-    <main className="relative min-h-screen bg-[#050a07] text-white selection:bg-emerald-400 selection:text-black flex flex-col justify-between p-6">
+    <main className="relative min-h-screen bg-slate-50/50 text-slate-900 selection:bg-emerald-500 selection:text-white flex flex-col justify-between p-6 overflow-hidden">
       <EnvironmentalBackground />
 
       {/* Top Header */}
       <header className="relative z-10 mx-auto flex w-full max-w-5xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 font-bold tracking-tight">
-          <span className="flex size-9 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 text-slate-950 shadow-md shadow-emerald-500/20">
+          <span className="flex size-9 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-md shadow-emerald-700/20">
             <Leaf size={18} className="stroke-[2.5]" />
           </span>
-          <span className="text-white font-black">
-            Car<span className="text-emerald-400">byn</span> UAE
+          <span className="text-slate-950 font-black">
+            Car<span className="text-emerald-600">byn</span> UAE
           </span>
         </Link>
-        <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3.5 py-1 text-xs font-bold text-emerald-300">
-          <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white/90 px-3.5 py-1 text-xs font-bold text-emerald-800 shadow-sm backdrop-blur-md">
+          <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
           Federal Law 11/2024 Portal
         </div>
       </header>
 
       {/* Center Auth Card */}
       <section className="relative z-10 mx-auto w-full max-w-md py-12 space-y-6">
-        <Card3D className="border-2 border-emerald-500/30 bg-[#0a1811]/90 p-8 shadow-2xl backdrop-blur-2xl space-y-6">
+        <Card3D className="border border-emerald-100 bg-white/95 p-8 shadow-2xl shadow-emerald-950/8 backdrop-blur-2xl space-y-6">
           <div className="space-y-2 text-center">
-            <h1 className="text-2xl font-black tracking-tight text-white">
+            <h1 className="text-2xl font-black tracking-tight text-slate-950">
               Sign In to Your Workspace
             </h1>
-            <p className="text-xs text-slate-300">
+            <p className="text-xs text-slate-500">
               Access your UAE GHG emissions compliance dashboard
             </p>
           </div>
 
           {/* 1-Click Persona Switcher */}
           <div className="space-y-2">
-            <p className="text-[10px] font-black uppercase tracking-wider text-emerald-400">
-              1-Click Instant Demo Login
+            <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+              <Sparkles size={13} className="text-emerald-600" />
+              1-Click Demo Persona Switcher:
             </p>
-            <div className="space-y-2">
+            <div className="grid grid-cols-1 gap-2">
               {DEMO_PERSONAS.map((p) => (
                 <button
                   key={p.role}
                   type="button"
                   onClick={() => selectPersona(p)}
-                  className="flex w-full items-center justify-between rounded-2xl border border-emerald-500/30 bg-emerald-950/40 p-3 text-left hover:border-emerald-400 hover:bg-emerald-950/70 transition-all text-xs"
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50/80 p-3 text-left hover:border-emerald-400 hover:bg-emerald-50/50 transition-all text-xs"
                 >
                   <div className="flex items-center gap-2.5">
-                    <div className="flex size-8 shrink-0 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-300 font-bold text-xs">
-                      {p.name.substring(0, 2).toUpperCase()}
-                    </div>
+                    <span className="flex size-8 items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 shadow-sm font-bold">
+                      {p.name.charAt(0)}
+                    </span>
                     <div>
-                      <p className="font-bold text-white">{p.name}</p>
-                      <p className="text-[10px] text-slate-400">{p.company}</p>
+                      <p className="font-bold text-slate-900">{p.name}</p>
+                      <p className="text-[10px] text-slate-500">{p.company}</p>
                     </div>
                   </div>
-                  <span className="rounded-full bg-emerald-400/20 px-2 py-0.5 text-[9px] font-bold text-emerald-300">
+                  <span className="rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200 px-2 py-0.5 text-[9px] font-mono font-bold">
                     {p.badge}
                   </span>
                 </button>
@@ -127,30 +150,36 @@ export default function LoginPage() {
           </div>
 
           <div className="relative flex items-center justify-center">
-            <div className="border-t border-emerald-500/20 w-full" />
-            <span className="bg-[#0a1811] px-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-              Or Manual Email
+            <div className="border-t border-slate-200 w-full" />
+            <span className="bg-white px-3 text-[10px] uppercase font-bold text-slate-400 absolute">
+              Or Sign In With Email
             </span>
           </div>
 
-          {/* Standard Form */}
-          <form onSubmit={handleLogin} className="space-y-4 text-xs">
+          {errorMsg && (
+            <div className="rounded-xl bg-rose-50 border border-rose-200 p-2.5 text-xs text-rose-700">
+              {errorMsg}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-1.5">
-              <label className="font-bold text-slate-200">Work Email</label>
+              <label className="text-xs font-bold text-slate-700">Work Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-3 font-semibold text-white outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+                placeholder="name@company.ae"
               />
             </div>
 
             <div className="space-y-1.5">
-              <div className="flex justify-between">
-                <label className="font-bold text-slate-200">Password</label>
-                <a href="#" className="text-emerald-400 hover:underline text-[11px]">
-                  Forgot password?
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-bold text-slate-700">Password</label>
+                <a href="#" className="text-[11px] text-emerald-600 hover:underline">
+                  Forgot?
                 </a>
               </div>
               <input
@@ -158,28 +187,22 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-3 font-semibold text-white outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-xs text-slate-900 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-400 to-teal-300 py-3.5 text-xs font-black text-slate-950 shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 transition-all"
+              className="w-full rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 py-3.5 text-xs font-black text-white shadow-xl shadow-emerald-700/20 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
-              {loading ? (
-                <span>Authenticating with SHA-256...</span>
-              ) : (
-                <>
-                  Sign In to UAE Workspace <ArrowRight size={15} />
-                </>
-              )}
+              {loading ? 'Authenticating...' : 'Sign In to Workspace'} <ArrowRight size={15} />
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-400">
+          <p className="text-center text-xs text-slate-500">
             Don&apos;t have an organization workspace?{' '}
-            <Link href="/register" className="font-bold text-emerald-400 hover:underline">
+            <Link href="/register" className="font-bold text-emerald-600 hover:underline">
               Create free account
             </Link>
           </p>
@@ -187,7 +210,7 @@ export default function LoginPage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 text-center text-xs text-slate-400">
+      <footer className="relative z-10 text-center text-xs text-slate-500">
         © 2026 Carbyn UAE. Compliant with Federal Decree-Law No. 11/2024.
       </footer>
     </main>

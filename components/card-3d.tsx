@@ -6,10 +6,12 @@ export function Card3D({
   children,
   className = '',
   glare = true,
+  maxTilt = 10,
 }: {
   children: React.ReactNode
   className?: string
   glare?: boolean
+  maxTilt?: number
 }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [rotateX, setRotateX] = useState(0)
@@ -24,8 +26,8 @@ export function Card3D({
     const centerX = rect.width / 2
     const centerY = rect.height / 2
 
-    const rotX = -((y - centerY) / centerY) * 8 // Max 8 deg
-    const rotY = ((x - centerX) / centerX) * 8
+    const rotX = -((y - centerY) / centerY) * maxTilt
+    const rotY = ((x - centerX) / centerX) * maxTilt
 
     setRotateX(rotX)
     setRotateY(rotY)
@@ -34,7 +36,7 @@ export function Card3D({
       setGlarePos({
         x: (x / rect.width) * 100,
         y: (y / rect.height) * 100,
-        opacity: 0.25,
+        opacity: 0.35,
       })
     }
   }
@@ -47,7 +49,7 @@ export function Card3D({
 
   return (
     <div
-      style={{ perspective: 1000 }}
+      style={{ perspective: 1200 }}
       className="transition-transform duration-300 ease-out"
     >
       <div
@@ -64,7 +66,7 @@ export function Card3D({
           <div
             className="pointer-events-none absolute inset-0 z-20 transition-opacity duration-300"
             style={{
-              background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(52, 211, 153, 0.35) 0%, transparent 60%)`,
+              background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.6) 0%, rgba(16, 185, 129, 0.15) 40%, transparent 70%)`,
               opacity: glarePos.opacity,
             }}
           />

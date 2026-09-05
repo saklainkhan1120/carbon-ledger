@@ -331,12 +331,17 @@ export function PlatformShell({
                 <span>{admin ? 'Open Client Dashboard' : 'Open Super Admin'}</span>
                 <ArrowUpRight size={13} className="text-muted-foreground" />
               </Link>
-              <Link
-                href="/login"
-                className="flex items-center gap-2 text-muted-foreground hover:text-destructive transition-colors px-1 pt-1 text-[11px]"
+              <button
+                onClick={async () => {
+                  try {
+                    await fetch('/api/auth/logout', { method: 'POST' })
+                  } catch {}
+                  router.push('/login')
+                }}
+                className="flex items-center gap-2 text-muted-foreground hover:text-destructive transition-colors px-1 pt-1 text-[11px] w-full text-left"
               >
                 <LogOut size={13} /> Sign Out
-              </Link>
+              </button>
             </div>
           </div>
         </div>

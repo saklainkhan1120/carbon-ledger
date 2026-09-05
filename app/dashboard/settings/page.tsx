@@ -50,9 +50,12 @@ export default function SettingsPage() {
     if (!newFacName) return
     addFacility({
       name: newFacName,
-      emirate: newFacEmirate,
+      emirate: newFacEmirate as any,
       utilityProvider: newFacUtility,
       metersCount: 2,
+      activeMeters: 2,
+      type: 'Manufacturing Plant',
+      areaSqM: 10000,
     })
     setNewFacName('')
     setShowAddFacility(false)
@@ -253,11 +256,11 @@ export default function SettingsPage() {
                   <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-400">
                     {f.emirate}
                   </span>
-                  <span className="text-[10px] font-mono text-muted-foreground">{f.utilityProvider}</span>
+                  <span className="text-[10px] font-mono text-muted-foreground">{f.utilityProvider || (f.emirate === 'Dubai' ? 'DEWA Grid' : 'ADDC Grid')}</span>
                 </div>
                 <div>
                   <h3 className="font-bold text-sm text-foreground">{f.name}</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{f.metersCount} Registered Power Meters</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{f.metersCount || f.activeMeters || 2} Registered Power Meters</p>
                 </div>
               </div>
             ))}

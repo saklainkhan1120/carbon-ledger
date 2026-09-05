@@ -118,6 +118,8 @@ export default function WorkspaceCalculatorPage() {
       emissionsTCO2e: totalTCO2e,
       period,
       evidenceStatus: evidenceName ? 'Verified' : 'Pending Upload',
+      auditReady: true,
+      loggedBy: 'Sustainability Manager',
     })
 
     setSavedSuccess(true)

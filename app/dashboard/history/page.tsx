@@ -256,7 +256,7 @@ export default function HistoryPage() {
                     Mathematical Formula Breakdown
                   </p>
                   <p className="font-mono text-xs text-foreground">
-                    {formatNumber(selectedRecord.quantity)} {selectedRecord.unit} × {selectedRecord.factorApplied} factor = {(selectedRecord.quantity * selectedRecord.factorApplied).toFixed(2)} kgCO₂e
+                    {formatNumber(selectedRecord.quantity)} {selectedRecord.unit} × {selectedRecord.factorApplied ?? selectedRecord.factorValue ?? 0} factor = {(selectedRecord.quantity * (selectedRecord.factorApplied ?? selectedRecord.factorValue ?? 0)).toFixed(2)} kgCO₂e
                   </p>
                   <p className="font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400">
                     Grand Output = {formatTCO2e(selectedRecord.emissionsTCO2e)} tCO₂e

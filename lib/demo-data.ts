@@ -1,10 +1,12 @@
 export interface Facility {
   id: string
   name: string
-  emirate: 'Dubai' | 'Abu Dhabi' | 'Sharjah' | 'Ajman' | 'Ras Al Khaimah' | 'Fujairah'
-  type: 'Headquarters' | 'Manufacturing Plant' | 'Logistics Hub' | 'Retail Branch'
+  emirate: 'Dubai' | 'Abu Dhabi' | 'Sharjah' | 'Ajman' | 'Ras Al Khaimah' | 'Fujairah' | string
+  type: 'Headquarters' | 'Manufacturing Plant' | 'Logistics Hub' | 'Retail Branch' | string
   areaSqM: number
   activeMeters: number
+  metersCount?: number
+  utilityProvider?: string
 }
 
 export interface EmissionRecord {
@@ -13,18 +15,19 @@ export interface EmissionRecord {
   date: string
   facilityId: string
   facilityName: string
-  scope: 'Scope 1' | 'Scope 2' | 'Scope 3'
+  scope: 'Scope 1' | 'Scope 2' | 'Scope 3' | 'Scope 1 + 2 Combined' | string
   activityType: string
   quantity: number
   unit: string
-  factorId: string
-  factorName: string
-  factorValue: number
+  factorId?: string
+  factorName?: string
+  factorValue?: number
+  factorApplied?: number
   emissionsTCO2e: number
   evidenceFile?: string
-  evidenceStatus: 'Verified' | 'Pending Review' | 'Missing Document'
-  auditReady: boolean
-  loggedBy: string
+  evidenceStatus: 'Verified' | 'Pending Review' | 'Missing Document' | 'Pending Upload' | string
+  auditReady?: boolean
+  loggedBy?: string
 }
 
 export interface GeneratedReport {
@@ -246,9 +249,13 @@ export const DEMO_ADMIN_ORGS = [
   {
     id: 'org-1',
     name: 'Al Noor Manufacturing LLC',
+    tradeLicense: 'CN-1049281-DXB',
     sector: 'Manufacturing & Metals',
     emirate: 'Dubai',
+    facilitiesCount: 3,
+    totalEmissionsTCO2e: 1248.6,
     emissions: '1,248.6 tCO₂e',
+    complianceStatus: 'Certified',
     plan: 'Professional',
     status: 'Active',
     members: 6,
@@ -258,9 +265,13 @@ export const DEMO_ADMIN_ORGS = [
   {
     id: 'org-2',
     name: 'Gulf Horizon Properties PJSC',
+    tradeLicense: 'CN-8942103-AUH',
     sector: 'Real Estate & Hospitality',
     emirate: 'Abu Dhabi',
+    facilitiesCount: 4,
+    totalEmissionsTCO2e: 842.2,
     emissions: '842.2 tCO₂e',
+    complianceStatus: 'Certified',
     plan: 'Enterprise',
     status: 'Active',
     members: 14,
@@ -270,9 +281,13 @@ export const DEMO_ADMIN_ORGS = [
   {
     id: 'org-3',
     name: 'Mira Logistics & Marine FZCO',
+    tradeLicense: 'FZ-5510294-JAFZA',
     sector: 'Logistics & Supply Chain',
     emirate: 'Dubai',
+    facilitiesCount: 2,
+    totalEmissionsTCO2e: 2104.7,
     emissions: '2,104.7 tCO₂e',
+    complianceStatus: 'Review Needed',
     plan: 'Professional',
     status: 'Review Needed',
     members: 8,
@@ -282,9 +297,13 @@ export const DEMO_ADMIN_ORGS = [
   {
     id: 'org-4',
     name: 'Nexa Retail Group Middle East',
+    tradeLicense: 'CN-3310492-SHJ',
     sector: 'Retail & Commerce',
     emirate: 'Sharjah',
+    facilitiesCount: 5,
+    totalEmissionsTCO2e: 596.8,
     emissions: '596.8 tCO₂e',
+    complianceStatus: 'Certified',
     plan: 'Starter',
     status: 'Active',
     members: 3,
@@ -294,9 +313,13 @@ export const DEMO_ADMIN_ORGS = [
   {
     id: 'org-5',
     name: 'Emirates Tech Solutions FZ-LLC',
+    tradeLicense: 'CN-7719204-DXB',
     sector: 'Technology & Cloud',
     emirate: 'Dubai',
+    facilitiesCount: 1,
+    totalEmissionsTCO2e: 148.2,
     emissions: '148.2 tCO₂e',
+    complianceStatus: 'Certified',
     plan: 'Starter',
     status: 'Active',
     members: 4,

@@ -21,7 +21,6 @@ export default function FactorsAdminPage() {
       columns={['Emission Factor Name', 'Scope Category', 'Geographic Region', 'Factor Value', 'Version', 'Status']}
       rows={rows}
       action="Publish New Factor"
-      onActionClick={() => alert('New Emission Factor publishing wizard')}
     />
   )
 }

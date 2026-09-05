@@ -21,7 +21,6 @@ export default function UsersAdminPage() {
       columns={['User Name', 'Organization', 'Work Email', 'Role & Scope', 'Last Activity', 'Status']}
       rows={USERS_ROWS}
       action="Invite Platform User"
-      onActionClick={() => alert('Invite Platform User modal')}
     />
   )
 }

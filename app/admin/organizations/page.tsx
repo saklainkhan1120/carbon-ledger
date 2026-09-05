@@ -22,7 +22,6 @@ export default function OrganizationsAdminPage() {
       columns={['Organization Name', 'Primary Owner', 'Subscription Plan', 'Emissions (tCO₂e)', 'Status', 'Audit Score']}
       rows={ORG_ROWS}
       action="Add Organization"
-      onActionClick={() => alert('Add Organization Modal')}
     />
   )
 }

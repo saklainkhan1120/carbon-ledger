@@ -18,8 +18,7 @@ export default function ReportsAdminPage() {
       description="Review submitted tenant GHG reports, audit methodology compliance, and issue cryptographic certificates."
       columns={['Report Title', 'Tenant Organization', 'Accounting Framework', 'Gross Emissions', 'Submission Date', 'Status']}
       rows={REPORTS_ROWS}
-      action="Review Queue"
-      onActionClick={() => alert('Review Queue')}
+      action="Queue Report"
     />
   )
 }

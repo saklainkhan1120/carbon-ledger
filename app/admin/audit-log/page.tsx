@@ -19,8 +19,7 @@ export default function AuditLogAdminPage() {
       description="Immutable cryptographic record of critical platform mutations, factor updates, and verification events."
       columns={['Audit Event', 'Actor Identity', 'Target Entity / Scope', 'Timestamp', 'Result', 'Tx Hash']}
       rows={AUDIT_ROWS}
-      action="Export Encrypted Log"
-      onActionClick={() => alert('Export Encrypted Audit Log')}
+      action="Log System Event"
     />
   )
 }

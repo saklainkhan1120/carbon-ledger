@@ -18,7 +18,6 @@ export default function CMSAdminPage() {
       columns={['Content Title', 'Content Type', 'Author', 'Last Modified', 'Status', 'Channel Placement']}
       rows={CMS_ROWS}
       action="Create New Notice"
-      onActionClick={() => alert('Create New Notice modal')}
     />
   )
 }
